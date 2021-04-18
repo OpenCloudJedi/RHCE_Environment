@@ -29,3 +29,12 @@
     - name: Create SSH keys on Control Node
       openssh_keypair:
         path: /home/Ender/.ssh/id_rsa
+      when:  ansible_facts['fqdn'] == "control.test"
+    - name: Make sure SELinux packages are installed on all nodes
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop: 
+        - policycoreutils
+        - policycoreutils-python-utils
+
