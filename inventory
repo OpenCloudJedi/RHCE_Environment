@@ -1,7 +1,9 @@
 [control]
-control.test
-[nodes]
-node1.test
-node2.test
-node3.test
-node4.test
+control.test ansible_host=192.168.2.2 ansible_user=vagrant ansible_ssh_pass=vagrant
+[iss]
+iss1.test ansible_host=192.168.2.3 ansible_user=vagrant ansible_ssh_pass=vagrant
+iss2.test ansible_host=192.168.2.4 ansible_user=vagrant ansible_ssh_pass=vagrant
+iss3.test ansible_host=192.168.2.5 ansible_user=vagrant ansible_ssh_pass=vagrant
+iss4.test ansible_host=192.168.2.6 ansible_user=vagrant ansible_ssh_pass=vagrant
+iss5.test ansible_host=192.168.2.7 ansible_user=vagrant ansible_ssh_pass=vagrant
+
