@@ -52,10 +52,10 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 768]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--vram", 12]
-      v.customize ["modifyvm", :id, "--accelerated3d", "off"]
+      v.customize ["modifyvm", :id, "--accelerate3d", "off"]
       unless File.exist?(disk1)
         v.customize ['createhd', '--filename', disk1, '--variant', 'Fixed', '--size', 1024]
-        v.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', disk1] 
+        v.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', disk1] 
       end 
     end
     server1.vm.provider :libvirt do |libvirt|
@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 768]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--vram", 12]
-      v.customize ["modifyvm", :id, "--accelerated3d", "off"]
+      v.customize ["modifyvm", :id, "--accelerate3d", "off"]
     end
     server2.vm.provider :libvirt do |libvirt|
       libvirt.memory = 768
@@ -104,10 +104,10 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 768]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--vram", 12]
-      v.customize ["modifyvm", :id, "--accelerated3d", "off"]
+      v.customize ["modifyvm", :id, "--accelerate3d", "off"]
       unless File.exist?(disk2)
         v.customize ['createhd', '--filename', disk2, '--variant', 'Fixed', '--size', 2048]
-        v.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk2] 
+        v.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk2] 
       end
     end
     server3.vm.provider :libvirt do |libvirt|
@@ -133,10 +133,10 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 768]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--vram", 12]
-      v.customize ["modifyvm", :id, "--accelerated3d", "off"]
+      v.customize ["modifyvm", :id, "--accelerate3d", "off"]
       unless File.exist?(disk3)
         v.customize ['createhd', '--filename', disk3, '--variant', 'Fixed', '--size', 2048]
-        v.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk3] 
+        v.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk3] 
       end
     end 
     server4.vm.provider :libvirt do |libvirt|
@@ -165,10 +165,10 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 768]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--vram", 12]
-      v.customize ["modifyvm", :id, "--accelerated3d", "off"]
+      v.customize ["modifyvm", :id, "--accelerate3d", "off"]
       unless File.exist?(disk4)
         v.customize ['createhd', '--filename', disk4, '--variant', 'Fixed', '--size', 2048]
-        v.customize ['storageattach', :id,  '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk4] 
+        v.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk4] 
       end
     end
     server5.vm.provider :libvirt do |libvirt|
