@@ -3,14 +3,23 @@
   hosts: all
   become: yes
   tasks:
-  - name: Deleting Repos Folder and contents thereof
-    file:
-      path: /etc/yum.repos.d
-      state: absent
-  - name: Empty shell of a repos folder :(
-    file:
-      path: /etc/yum.repos.d
-      state: directory
+  - name: copy
+    copy:
+      src: termite.terminfo
+      dest: /root/termite.terminfo
+  - name: run tic -x
+    command: tic -x /root/termite.terminfo
+  - name: Block to ignore control node
+    block:
+      - name: Deleting Repos Folder and contents thereof
+        file:
+          path: /etc/yum.repos.d
+          state: absent
+      - name: Empty shell of a repos folder :(
+        file:
+          path: /etc/yum.repos.d
+          state: directory
+    when: ansible_facts['hostname'] != 'control' 
   - name: Start of block for vg creation
     block:
       - name: Full partition of second drive
@@ -26,7 +35,7 @@
         lvg:
           vg: formics
           pvs: /dev/sdb1
-    when: ansible_facts['devices']['sdb'] is defined
+    when: "'sdb' in ansible_facts['devices']"
     ignore_errors: true
   
   - name: Remove ansible from Control
