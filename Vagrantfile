@@ -167,7 +167,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--vram", 12]
       v.customize ["modifyvm", :id, "--accelerate3d", "off"]
       unless File.exist?(disk4)
-        v.customize ['createhd', '--filename', disk4, '--variant', 'Fixed', '--size', 2048]
+        v.customize ['createhd', '--filename', disk4, '--variant', 'Fixed', '--size', 1024]
         v.customize ['storageattach', :id,  '--storagectl', 'SATA', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', disk4] 
       end
     end

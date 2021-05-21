@@ -1,9 +1,10 @@
 ---
-- name: Petra
-  group: commanders
-- name: Bean
-  group: commanders
-- name: Dumper
-  group: jeesh
-- name: Vlad
-  group: jeesh
+users:
+  - name: Petra
+    group: commanders
+  - name: Bean
+    group: commanders 
+  - name: Dumper
+    group: jeesh
+  - name: Vlad
+    group: jeesh
