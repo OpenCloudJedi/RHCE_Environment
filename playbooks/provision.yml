@@ -49,3 +49,45 @@
       src: hosts.j2
       dest: /etc/hosts
     when: ansible_hostname == 'control'
+  
+  - name: create Ender on all nodes
+    user:
+      name: Ender
+      state: present
+
+  - name: Create sudoers file for Ender
+    file:
+      dest: /etc/sudoers.d/Ender
+      content: Ender ALL=(ALL) NOPASSWD: ALL
+      state: present
+
+  - name: Create .ssh folder for Ender
+    file:
+      path: /home/Ender/.ssh
+      state: directory
+      owner: Ender
+      group: Ender
+      mode: '0700'
+
+  - name: Copy ssh keys into .ssh folder
+    copy:
+      src: /home/vagrant/.ssh/id_rsa.pub
+      dest: /home/Ender/.ssh/authorized_keys
+      owner: Ender
+      group: Ender
+      mode: '0600'
+
+  - name: Copy ssh keys into .ssh folder for control
+    copy:
+      src: /home/vagrant/.ssh/id_rsa.pub
+      dest: /home/Ender/.ssh/id_rsa.pub
+      owner: Ender
+      group: Ender
+      mode: '0600'
+    when: ansible_hostname == 'control'
+
+  - name: Change control hostname
+    hostname:
+      name: groundcontrol
+    when: ansible_hostname == 'control'
+
