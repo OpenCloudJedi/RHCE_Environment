@@ -56,10 +56,9 @@
       state: present
 
   - name: Create sudoers file for Ender
-    file:
+    copy:
       dest: /etc/sudoers.d/Ender
-      content: Ender ALL=(ALL) NOPASSWD: ALL
-      state: present
+      content: "Ender ALL=(ALL) NOPASSWD: ALL"
 
   - name: Create .ssh folder for Ender
     file:
@@ -71,7 +70,7 @@
 
   - name: Copy ssh keys into .ssh folder
     copy:
-      src: /home/vagrant/.ssh/id_rsa.pub
+      src: /home/vagrant/.ssh/vagrant.pub
       dest: /home/Ender/.ssh/authorized_keys
       owner: Ender
       group: Ender
@@ -79,7 +78,7 @@
 
   - name: Copy ssh keys into .ssh folder for control
     copy:
-      src: /home/vagrant/.ssh/id_rsa.pub
+      src: /home/vagrant/.ssh/vagrant.pub
       dest: /home/Ender/.ssh/id_rsa.pub
       owner: Ender
       group: Ender
