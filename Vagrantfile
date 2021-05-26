@@ -121,7 +121,7 @@ Vagrant.configure("2") do |config|
   # Server4.
   config.vm.define "iss4" do |server4|
     server4.vm.box = "m1k3bu11/CentOS8.3-Workstation"
-    server4.vm.hostname = "server4.test"
+    server4.vm.hostname = "iss4.test"
     server4.vm.network :private_network, ip: "192.168.2.6"
  #   server4.vm.provision "shell",
  #     inline: "sudo yum update -y"
