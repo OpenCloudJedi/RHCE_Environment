@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |v|
     v.memory = 1024
     v.cpus = 1
-    v.linked_clone = true
+    #v.linked_clone = true
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
